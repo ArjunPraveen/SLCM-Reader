@@ -10,7 +10,7 @@ from selenium import webdriver
 def data():
     loginUrl = 'https://slcm.manipal.edu/'
     Username = '180911230'
-    Password = '########'
+    Password = '#####'
     return loginUrl,Username,Password
 
 def configure():    
@@ -65,6 +65,6 @@ def login():
 
 
 login()
-
+print('hello')
 
 
