@@ -1,2 +1,3 @@
 # Slcm-Reader
-Obtain marks  from slcm  in a clean format
+Obtain your attendance and marks from slcm without opening your browser.
+
