@@ -9,7 +9,7 @@ from selenium import webdriver
 login_url = 'https://slcm.manipal.edu/'
 
 Username = '180911230'
-Password = 'puppy@10'
+Password = '#####'
 
 options = webdriver.ChromeOptions()
 
