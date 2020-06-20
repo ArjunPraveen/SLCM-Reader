@@ -27,13 +27,13 @@ def configure():
 def login():
     try:
         driver = configure()
-        url, username, password = data()
+        url, username, userpassword= data()
         driver.get(url)
         driver.implicitly_wait(5)
         name = driver.find_element_by_name('txtUserid')
         name.send_keys(username)
         password = driver.find_element_by_name('txtpassword')
-        password.send_keys(password)
+        password.send_keys(userpassword)
         driver.find_element_by_name('btnLogin').click()
         print("Succesfully logged in")
         academicsPage = EC.presence_of_element_located((By.ID, 'rtpchkMenu_lnkbtn2_1'))
