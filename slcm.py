@@ -9,7 +9,7 @@ from selenium import webdriver
 import pandas as pd
 import getpass 
 
-#put in your slcm details here
+
 def data():
     loginUrl = 'https://slcm.manipal.edu/'
     # Password = '*******'    
