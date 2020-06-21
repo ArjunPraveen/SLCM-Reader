@@ -8,7 +8,7 @@ Obtain your attendance and marks from SLCM in a CLI without opening your browser
 
 
 ### Installation
-Download selenium driver for chrome and add the path in the configure() function in slcm.py as follows: 
+Download Selenium driver for [Chrome](https://chromedriver.chromium.org/downloads) or [Firefox](https://github.com/mozilla/geckodriver/releases) and add the path in the configure() function in slcm.py as follows: 
 ```python
 driver = webdriver.Chrome("File/Path/chromedriver.exe", options=options) # example
 ```
@@ -17,6 +17,7 @@ On your terminal:
 ```terminal
 pip install pandas selenium
 ```
+##### Note: Change Chrome to Firefox in the configure() function in slcm.py code if Firefox is opted instead of Chrome.
 
 ### Working 
 
