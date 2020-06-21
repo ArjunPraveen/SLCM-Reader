@@ -1,5 +1,5 @@
 # Slcm-Reader
-Obtain your attendance and marks from SLCM in a CLI without opening your browser. Output will be displayed on the terminal as well as written into a file. (Marks not complete yet)
+Obtain your attendance and marks from [SLCM](https://slcm.manipal.edu/) in a CLI without opening your browser. Output will be displayed on the terminal as well as written into a file. (Marks not complete yet)
 
 
 ### Requirements
