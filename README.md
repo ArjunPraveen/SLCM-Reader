@@ -1,5 +1,5 @@
 # Slcm-Reader
-Obtain your attendance and marks from SLCM in a CLI without opening your browser. Output will be displayed on the terminal as well as written into a file.
+Obtain your attendance and marks from SLCM in a CLI without opening your browser. Output will be displayed on the terminal as well as written into a file. (Marks not complete yet)
 
 
 ### Requirements
@@ -8,7 +8,7 @@ Obtain your attendance and marks from SLCM in a CLI without opening your browser
 
 
 ### Installation
-Download selenium driver for chrome and add the path in the configure() function as follows: 
+Download selenium driver for chrome and add the path in the configure() function in slcm.py as follows: 
 ```python
 driver = webdriver.Chrome("File/Path/chromedriver.exe", options=options) # example
 ```
@@ -20,7 +20,7 @@ pip install pandas selenium
 
 ### Working 
 
-On your terminal go to the appropriate terminal and run the py file (Python3).
+On your terminal go to the appropriate directory and run the py file (Python3).
 ```terminal
 python slcm.py
 ```
