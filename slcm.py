@@ -7,19 +7,27 @@ from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import SessionNotCreatedException
 from selenium import webdriver
 import pandas as pd
+import getpass 
 
 #put in your slcm details here
 def data():
     loginUrl = 'https://slcm.manipal.edu/'
-    Username = '180911230'
-    Password = '#########'  
+    # Password = '*******'    
+    # Username = '180911230'
+    print("---------------------------------------")
+    Username = input("Enter registration number: ")
+    try:    
+        Password = getpass.getpass("Enter password: ")
+    except getpass.GetPassWarning:
+        Password = input("Enter password: ")
+    print("Loading...")
     return loginUrl,Username,Password
 
 def configure():    
     try:
         options = webdriver.ChromeOptions()
         options.add_argument('--log-level=3')
-        #options.add_argument('headless')
+        options.add_argument('headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         driver = webdriver.Chrome("C:/Users/arjun/Downloads/chromedriver_win32/chromedriver.exe", options=options)
         return driver
@@ -57,7 +65,10 @@ def tableize(df):
     out.append(hline)
     return "\n".join(out)
 
-    
+
+class LoginException(Exception):
+    pass
+
 def login_scrape():
     try:
         driver = configure()
@@ -69,16 +80,23 @@ def login_scrape():
         password = driver.find_element_by_name('txtpassword')
         password.send_keys(userpassword)
         driver.find_element_by_name('btnLogin').click()
-        print("Succesfully logged in")
-        print("Loading ...")
+        
+        
         academicsPage = EC.presence_of_element_located((By.ID, 'rtpchkMenu_lnkbtn2_1'))
         delay = 15
-        myElem = WebDriverWait(driver, delay).until(academicsPage)
+        try:
+            myElem = WebDriverWait(driver, delay).until(academicsPage)
+            print("\nSuccesfully logged in")
+        except:
+            print("\nInvalid Login credentials!")
+            raise LoginException
+
         myElem.click()
         choice = menu()
-        print("---------------------------------------")
+        print("Loading ...")
         if  choice == 1:
             df = pd.DataFrame(columns = ['Subject','Total','Absent','Percentage-Present','Comments'])
+            
             driver.find_element_by_xpath('//a[contains(@href,"#3")]').click()
             
             EC.presence_of_all_elements_located((By.XPATH, '//td[@class="text-center"]'))
@@ -100,6 +118,7 @@ def login_scrape():
                         comment = "SAFE"
                 if index !=0 and index % 8 ==0:
                     df.loc[len(df)] = [subject, total, absent, percentage, comment]
+            print()
             print (tableize(df))
         elif choice == 2:
             pass
@@ -111,9 +130,14 @@ def login_scrape():
             print("Loading took too much time!")
     except SessionNotCreatedException:
             print("Driver forcefully shut!")   
+    except KeyboardInterrupt:
+            print("Process interrupted!")
+    except LoginException:
+        pass
             
 
     finally:
+        print("---------------------------------------")
         c = input("Do you want to try again: (Y/N)\n")
         if c == 'Y' or c == 'y':
             login_scrape()
