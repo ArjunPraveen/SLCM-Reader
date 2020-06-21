@@ -118,8 +118,17 @@ def login_scrape():
                         comment = "SAFE"
                 if index !=0 and index % 8 ==0:
                     df.loc[len(df)] = [subject, total, absent, percentage, comment]
+            attendanceTable = tableize(df)
             print()
-            print (tableize(df))
+            print (attendanceTable)
+            try:
+                f = open("MyAttendance.txt", "w")
+                print("\nTable written into MyAttendance.txt file. Check same directory as py file.")
+            except IOError:
+                print("File error! Try again.")  
+            
+            f.write(attendanceTable)
+            
         elif choice == 2:
             pass
         else:
@@ -138,7 +147,7 @@ def login_scrape():
 
     finally:
         print("---------------------------------------")
-        c = input("Do you want to try again: (Y/N)\n")
+        c = input("Do you want to try again(Y/N): ")
         if c == 'Y' or c == 'y':
             login_scrape()
         else:
@@ -151,7 +160,7 @@ def login_scrape():
 
 #----------------main function------------------------------
 
-print("Welcome!")
+print("Welcome to SLCMisDisgusting!")
 print("Open the terminal in full screen")
 login_scrape()
 print('----------x----------')

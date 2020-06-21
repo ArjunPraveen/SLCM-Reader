@@ -1,0 +1,12 @@
++--------------------------------------------------+--------------------+--------------------+--------------------+--------------------+
+|                      Subject                     |        Total       |        Absent      |  Percentage-Present|       Comments     |
++--------------------------------------------------+--------------------+--------------------+--------------------+--------------------+
+|                       COMPUTER NETWORK PROTOCOLS |                 35 |                  5 |                 86 |               SAFE |
+| COMPUTER ORGANIZATION AND MICROPROCESSOR SYSTEMS |                 30 |                  4 |                 87 |               SAFE |
+|                DESIGN AND ANALYSIS OF ALGORITHMS |                 31 |                  5 |                 84 |               SAFE |
+|                                OPERATING SYSTEMS |                 34 |                  4 |                 89 |               SAFE |
+|                                   ALGORITHMS LAB |                  9 |                  0 |                100 |               SAFE |
+|                       MICROPROCESSOR SYSTEMS LAB |                  8 |                  2 |                 75 |            WARNING |
+|                            OPERATING SYSTEMS LAB |                  9 |                  1 |                 89 |               SAFE |
+|                     ENGINEERING MATHEMATICS - IV |                 26 |                  1 |                 97 |               SAFE |
++--------------------------------------------------+--------------------+--------------------+--------------------+--------------------+
