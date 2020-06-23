@@ -88,7 +88,7 @@ def login_scrape():
             myElem = WebDriverWait(driver, delay).until(academicsPage)
             print("\nSuccesfully logged in")
         except:
-            print("\nInvalid Login credentials!")
+            print("\nInvalid Login credentials or SLCM servers are down.")
             raise LoginException
 
         myElem.click()
